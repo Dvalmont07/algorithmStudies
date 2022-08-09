@@ -7,13 +7,14 @@ function returnArrayPosition(list, seachedItem) {
     for (let i = 0; i < list.length; i++) {
 
         let middle = Math.floor((lowest + highest) / 2);
+        let guess = list[middle];
 
-        if (seachedItem === list[i]) {
-            result = i;
+        if (seachedItem === guess) {
+            result = middle;
             break;
-        } else if (seachedItem > list[i]) {
+        } else if (seachedItem > guess) {
             lowest = middle + 1;
-        } else if (seachedItem < list[i]) {
+        } else if (seachedItem < guess) {
             highest = middle - 1;
         }
     }
