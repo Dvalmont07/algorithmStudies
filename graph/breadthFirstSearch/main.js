@@ -6,11 +6,10 @@ function breadthFirstSearch(dictionary, searchedItem) {
 
     if (dictionary) {
         while (queue.length > 0) {
-            let person = queue.shift();
+            let person = getAPerson();
             if (verifiedPeople.indexOf(person) == -1) {
                 if (isSalesPerson(person)) {
                     return `${person} is a salesperson`;
-                    // break;
                 } else {
                     verifiedPeople.push(person);
                     queue = queue.concat(dictionary[person]);
@@ -22,8 +21,12 @@ function breadthFirstSearch(dictionary, searchedItem) {
         return emptyDictionayMessage();
     }
 
+    function getAPerson() {
+        return queue.shift();
+    }
+
     function emptyDictionayMessage() {
-        return `there's no salesperson in the list`;
+        return `There's no salesperson in the list`;
     }
 
     function isSalesPerson(person) {
@@ -36,16 +39,21 @@ function breadthFirstSearch(dictionary, searchedItem) {
 
 function showGraphBreadthFirstSearch() {
     const searchedItem = 's';
-    const nodesList = [];
-    nodesList['you'] = ['alice', 'bob', 'claire'];
-    nodesList['bob'] = ['anuj', 'peggy'];
-    nodesList['alice'] = ['peggy'];
-    nodesList['claire'] = ['thom', 'jonny-s'];
-    nodesList['anuj'] = [];
-    nodesList['peggy'] = [];
-    nodesList['thom'] = [];
-    nodesList['jonny-s'] = [];
-    
+    const nodesList = setNodesList();
+
     document.write(`${breadthFirstSearch(nodesList, searchedItem)}`);
-    //Expected result: thom is a salesPerson
+
+    function setNodesList() {
+        const nodesList = [];
+        nodesList['you'] = ['alice', 'bob', 'claire'];
+        nodesList['bob'] = ['anuj', 'peggy'];
+        nodesList['alice'] = ['peggy'];
+        nodesList['claire'] = ['thom', 'jonny-s'];
+        nodesList['anuj'] = [];
+        nodesList['peggy'] = [];
+        nodesList['thom'] = [];
+        nodesList['jonny-s'] = [];
+        return nodesList;
+    }
+    //Expected result: jonny-s is a salesPerson
 }
