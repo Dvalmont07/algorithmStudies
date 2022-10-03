@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="bubbleSorting/main.js"></script>
     <script src="binarySaerch/main.js"></script>
+    <script src="recursion/sum/main.js"></script>
+    <script src="recursion/higher/main.js"></script>
+    <script src="quickSort/main.js"></script>
     <style>
         li span {
             cursor: pointer;
@@ -21,11 +24,32 @@
 
 <body>
     <ul>
+
         <li>
-            <span onclick="showBubbleSorting()">Bubble Sorting</span>
+            <h2>Sorting</h2>
+            <ol>
+                <li><span onclick="showBubbleSorting()">Bubble Sorting</span></li>
+            </ol>
         </li>
         <li>
-            <span onclick="showBinarySearch()">Binary Saerch</span>
+            <h2>Searching</h2>
+            <ol>
+                <li> <span onclick="showBinarySearch()">Binary Saerch</span></li>
+            </ol>
+        </li>
+        <li>
+            <h2>Recursive</h2>
+            <ol>
+                <li><span onclick="showTotal()">Show Total (recursive Sum)</span></li>
+                <li><span onclick="showHigher()">Show Total (recursive Sum)</span></li>
+            </ol>
+
+        </li>
+        <li>
+            <h2>QuickSort</h2>
+            <ol>
+                <li><span onclick="showQuickSorting()">QuickSort</span></li>                
+            </ol>
         </li>
     </ul>
 </body>

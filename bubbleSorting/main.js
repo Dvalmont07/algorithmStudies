@@ -1,7 +1,5 @@
-function mySortArray() {
-    let arr = [2, 90, 70, 305, 50, 999, 80, 60, 85, 1, -45, -1];
+function mySortArray(arr) {
     for (let i = 0; i < arr.length; i++) {
-
         if (arr[i] > arr[i + 1]) {
             let aux = arr[i];
             arr[i] = arr[i + 1];
@@ -12,8 +10,7 @@ function mySortArray() {
     return arr;
 }
 
-function fromBookSortArray() {
-    let arr = [2, 90, 70, 305, 50, 999, 80, 60, 85, 1, -45, -1];
+function fromBookSortArray(arr) {
     for (let i = 0; i < arr.length - 1; i++) {
         let isSwap = false;
 
@@ -36,6 +33,7 @@ function fromBookSortArray() {
 }
 
 function showBubbleSorting() {
-    document.writeln(mySortArray() + "<br>");
-    document.writeln(fromBookSortArray());
+    let arr = [2, 90, 70, 305, 50, 999, 80, 60, 85, 1, -45, -1];
+    document.writeln(mySortArray(arr) + "<br>");
+    document.writeln(fromBookSortArray(arr));
 }
