@@ -1,18 +1,18 @@
-function breadthFirstSearch(dictionary, searchedItem) {
-    /**Searching the first salesperson in the queue */
-    let queue = [];
-    queue = queue.concat(dictionary['you']);
-    const verifiedPeople = [];
+function breadthFirstSearch(sellersNodeListDictionary, searchedItem) {
+    /**Searching the first salesperson in the sallersQueue */
+    let sallersQueue = [];
+    sallersQueue = sallersQueue.concat(sellersNodeListDictionary['me']);
+    const verifiedSellers = [];
 
-    if (dictionary) {
-        while (queue.length > 0) {
-            let person = getAPerson();
-            if (verifiedPeople.indexOf(person) == -1) {
-                if (isSalesPerson(person)) {
-                    return `${person} is a salesperson`;
+    if (sellersNodeListDictionary) {
+        while (sallersQueue.length > 0) {
+            const seller = getFirstSallerFromQueue();
+            if (verifiedSellers.indexOf(seller) == -1) {
+                if (isSeller(seller)) {
+                    return `${seller} is a seller`;
                 } else {
-                    verifiedPeople.push(person);
-                    queue = queue.concat(dictionary[person]);
+                    verifiedSellers.push(seller);
+                    sallersQueue = sallersQueue.concat(sellersNodeListDictionary[seller]);
                 }
             }
         }
@@ -21,16 +21,16 @@ function breadthFirstSearch(dictionary, searchedItem) {
         return emptyDictionayMessage();
     }
 
-    function getAPerson() {
-        return queue.shift();
+    function getFirstSallerFromQueue() {
+        return sallersQueue.shift();
     }
 
     function emptyDictionayMessage() {
         return `There's no salesperson in the list`;
     }
 
-    function isSalesPerson(person) {
-        return person.endsWith(searchedItem);
+    function isSeller(seller) {
+        return seller.endsWith(searchedItem);
     }
 
 }
@@ -39,13 +39,11 @@ function breadthFirstSearch(dictionary, searchedItem) {
 
 function showGraphBreadthFirstSearch() {
     const searchedItem = 's';
-    const nodesList = setNodesList();
-
-    document.write(`${breadthFirstSearch(nodesList, searchedItem)}`);
+    document.write(`${breadthFirstSearch(setNodesList(), searchedItem)}`);
 
     function setNodesList() {
         const nodesList = [];
-        nodesList['you'] = ['alice', 'bob', 'claire'];
+        nodesList['me'] = ['alice', 'bob', 'claire'];
         nodesList['bob'] = ['anuj', 'peggy'];
         nodesList['alice'] = ['peggy'];
         nodesList['claire'] = ['thom', 'jonny-s'];
