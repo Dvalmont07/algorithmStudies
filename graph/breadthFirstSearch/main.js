@@ -1,18 +1,18 @@
-function breadthFirstSearch(sellersNodeListDictionary, searchedItem) {
-    /**Searching the first salesperson in the sallersQueue */
-    let sallersQueue = [];
-    sallersQueue = sallersQueue.concat(sellersNodeListDictionary['me']);
-    const verifiedSellers = [];
+function breadthFirstSearch(peopleNodeListDictionary, searchedItem) {
+    /**Searching the first salesperson in the peopleQueue */
+    let peopleQueue = [];
+    peopleQueue = peopleQueue.concat(peopleNodeListDictionary['me']);
+    const verifiedPeople = [];
 
-    if (sellersNodeListDictionary) {
-        while (sallersQueue.length > 0) {
-            const seller = getFirstSallerFromQueue();
-            if (verifiedSellers.indexOf(seller) == -1) {
-                if (isSeller(seller)) {
-                    return `${seller} is a seller`;
+    if (peopleNodeListDictionary) {
+        while (peopleQueue.length > 0) {
+            const person = getFirstPersonFromQueue();
+            if (isNotInVerifiedPeople(person)) {
+                if (isSeller(person)) {
+                    return `${person} is a seller`;
                 } else {
-                    verifiedSellers.push(seller);
-                    sallersQueue = sallersQueue.concat(sellersNodeListDictionary[seller]);
+                    verifiedPeople.push(person);
+                    peopleQueue = peopleQueue.concat(peopleNodeListDictionary[person]);
                 }
             }
         }
@@ -21,16 +21,20 @@ function breadthFirstSearch(sellersNodeListDictionary, searchedItem) {
         return emptyDictionayMessage();
     }
 
-    function getFirstSallerFromQueue() {
-        return sallersQueue.shift();
+    function isNotInVerifiedPeople(person) {
+        return verifiedPeople.indexOf(person) == -1;
+    }
+
+    function getFirstPersonFromQueue() {
+        return peopleQueue.shift();
     }
 
     function emptyDictionayMessage() {
         return `There's no salesperson in the list`;
     }
 
-    function isSeller(seller) {
-        return seller.endsWith(searchedItem);
+    function isSeller(person) {
+        return person.endsWith(searchedItem);
     }
 
 }
