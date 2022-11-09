@@ -38,9 +38,6 @@ function breadthFirstSearch(peopleNodeListDictionary, searchedItem) {
     }
 
 }
-
-
-
 function showGraphBreadthFirstSearch() {
     const searchedItem = 's';
     document.write(`${breadthFirstSearch(setNodesList(), searchedItem)}`);
