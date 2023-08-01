@@ -34,6 +34,11 @@ function fromBookSortArray(arr) {
 
 function showBubbleSorting() {
     let arr = [2, 90, 70, 305, 50, 999, 80, 60, 85, 1, -45, -1];
+    console.time("concatenation I");
     document.writeln(mySortArray(arr) + "<br>");
+    console.timeEnd("concatenation I");
+
+    console.time("concatenation II");
     document.writeln(fromBookSortArray(arr));
+    console.timeEnd("concatenation II");
 }

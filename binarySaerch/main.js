@@ -1,5 +1,4 @@
 function returnArrayPosition(list, seachedItem) {
-    let result = null;
 
     let lowest = 0;
     let highest = list.length - 1;
@@ -10,15 +9,15 @@ function returnArrayPosition(list, seachedItem) {
         let guess = list[middle];
 
         if (seachedItem === guess) {
-            result = middle;
-            break;
+            return middle;
+
         } else if (seachedItem > guess) {
             lowest = middle + 1;
-        } else if (seachedItem < guess) {
+        } else {
             highest = middle - 1;
         }
     }
-    return result;
+    return null;
 }
 
 function showBinarySearch() {
@@ -26,4 +25,5 @@ function showBinarySearch() {
     const list = [1, 10, 21, 41, 52, 65, 70, 80, 96, 100];
     document.write(`Array position of ${seachedItem}: ${returnArrayPosition(list, seachedItem)}`);
 }
+showBinarySearch()
 //result = 7
