@@ -22,6 +22,5 @@ function getFibonacciSequenceByLoop(count) {
 
 function showFibonacciSequence() {
     const counter = 7;
-    document.writeln(`Given <strong>${counter}</strong> as a couter, the sequence result is this: <strong>${getFibonacciSequenceByLoop(counter)}</strong>`);
-
+    document.writeln(`Given <strong>${counter}</strong> as a couter, the Fibonacci Sequence result is this: <strong>${getFibonacciSequenceByLoop(counter)}</strong>`);
 }
