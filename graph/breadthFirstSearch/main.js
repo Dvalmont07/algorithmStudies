@@ -9,7 +9,7 @@ function breadthFirstSearch(peopleNodeListDictionary, searchedItem) {
             const person = getFirstPersonFromQueue();
             if (isNotInVerifiedPeople(person)) {
                 if (isSeller(person)) {
-                    return `${person} is a seller`;
+                    return `Result: <strong>${person}</strong> is a seller`;
                 } else {
                     verifiedPeople.push(person);
                     peopleQueue = peopleQueue.concat(peopleNodeListDictionary[person]);
@@ -39,11 +39,13 @@ function breadthFirstSearch(peopleNodeListDictionary, searchedItem) {
 
 }
 function showGraphBreadthFirstSearch() {
-    const searchedItem = 's';
-    document.write(`${breadthFirstSearch(setNodesList(), searchedItem)}`);
+    const searchedItem = '-s';
+    document.write(`NodeList: <br> ${getNodesListToString(getNodesList())}<br>`);
+    document.write(`Expected result: <strong>jonny-s</strong> is a seller<br>`);
+    document.write(`${breadthFirstSearch(getNodesList(), searchedItem)}`);
 
-    function setNodesList() {
-        const nodesList = [];
+    function getNodesList() {
+        const nodesList = {};
         nodesList['me'] = ['alice', 'bob', 'claire'];
         nodesList['bob'] = ['anuj', 'peggy'];
         nodesList['alice'] = ['peggy'];
@@ -54,5 +56,19 @@ function showGraphBreadthFirstSearch() {
         nodesList['jonny-s'] = [];
         return nodesList;
     }
-    //Expected result: jonny-s is a salesPerson
+
+    function getNodesListToString(nodesList) {
+        let result = "";
+        let keys = Object.keys(nodesList);
+
+        for (let i = 0; i < keys.length; i++) {
+            result += `${keys[i]} [`;
+            for (let j = 0; j < nodesList[keys[i]].length; j++) {
+                result += `${nodesList[keys[i]][j]}`;
+                result+= `${j < nodesList[keys[i]].length - 1 ? ', ': ''}`;
+            }
+            result += "] <br>";
+        }
+        return result;
+    }
 }
