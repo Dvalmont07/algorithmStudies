@@ -40,8 +40,10 @@ function breadthFirstSearch(peopleNodeListDictionary, searchedItem) {
 }
 function showGraphBreadthFirstSearch() {
     const searchedItem = '-s';
-    document.write(`NodeList: <br> ${getNodesListToString(getNodesList())}<br>`);
-    document.write(`Expected result: <strong>jonny-s</strong> is a seller<br>`);
+    document.write(`NodeList: <br> ${getNodesListToString()}`);
+    document.write(`<h4>Expected result: <strong>jonny-s</strong> is a seller</h4>`);
+    document.write(`<h4>Searched Item: '-s'<h4>`);
+    
     document.write(`${breadthFirstSearch(getNodesList(), searchedItem)}`);
 
     function getNodesList() {
@@ -57,18 +59,10 @@ function showGraphBreadthFirstSearch() {
         return nodesList;
     }
 
-    function getNodesListToString(nodesList) {
-        let result = "";
-        let keys = Object.keys(nodesList);
-
-        for (let i = 0; i < keys.length; i++) {
-            result += `${keys[i]} [`;
-            for (let j = 0; j < nodesList[keys[i]].length; j++) {
-                result += `${nodesList[keys[i]][j]}`;
-                result+= `${j < nodesList[keys[i]].length - 1 ? ', ': ''}`;
-            }
-            result += "] <br>";
-        }
-        return result;
+    function getNodesListToString() {
+        return JSON.stringify(getNodesList())
+            .replace(/[{}"]/g, "")
+            .replace(/],/g, "]<br>")
+            .replace(/,/g, ", ")
     }
 }
