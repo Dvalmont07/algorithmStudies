@@ -7,11 +7,12 @@ function sumArrayByLoop(aArray) {
 }
 
 function sumArrayRecursively(aArray) {
-    let topValue = aArray.pop();
     if (aArray.length === 0) {
-        return topValue;
+        return 0;
     }
-    return topValue + sumArrayRecursively(aArray);
+    else {
+        return aArray.pop() + sumArrayRecursively(aArray);
+    }
 }
 
 function showTotal() {
@@ -19,7 +20,7 @@ function showTotal() {
     document.writeln(`BaseArray: ${aArray} <br>`);
     document.writeln(`Expexted result: 12 <br>`);
     document.writeln("sumArrayByLoop: " + sumArrayByLoop(aArray) + "<br>");
-    document.writeln("sumArrayRecursively" + sumArrayRecursively(aArray) + "<br>");
+    document.writeln("sumArrayRecursively: " + sumArrayRecursively(aArray) + "<br>");
 }
 
 //result 12
