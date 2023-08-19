@@ -1,27 +1,26 @@
-function quickSort(arr) {
+function quickSort(aArray) {
 
-    if (arr.length < 2) {
-        return arr
+    if (aArray.length < 2) {
+        return aArray;
     } else {
-
-        let pivot = arr[0];
-
-        let menoresQuePivot = arr.filter(a => {
-            return a < pivot
-        });
-        let maioresQuePivot = arr.filter(a => {
-            return a > pivot
-        });
-        return quickSort(menoresQuePivot).concat(pivot).concat(quickSort(maioresQuePivot));
+        const random = Math.floor(Math.random() * (aArray.length - 1));
+        let pivot = aArray[random];
+        let loewrThanPivot = [];
+        let higherThanPivot = [];
+        for (let i = 0; i < aArray.length; i++) {
+            if (aArray[i] < pivot) {
+                loewrThanPivot.push(aArray[i]);
+            } else if (aArray[i] > pivot) {
+                higherThanPivot.push(aArray[i]);
+            }
+        }
+        return quickSort(loewrThanPivot).concat(pivot).concat(quickSort(higherThanPivot));
     }
-
 }
 
-
 function showQuickSorting() {
-    const arr = [2, 90, 70, 305, 50, 999, 80, 60, 85, 1, -45, -1];
+    const aArray = [2, 90, 70, 305, 50, 999, 80, 60, 85, 1, -45, -1];
     console.time("concatenation");
-    document.writeln(quickSort(arr) + "<br>");
+    document.writeln(quickSort(aArray) + "<br>");
     console.timeEnd("concatenation");
-
 }
