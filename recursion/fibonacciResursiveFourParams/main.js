@@ -20,5 +20,5 @@ function showFibonacciRecursiveSequenceFourParams() {
     let ultimate = 1;
     let counter = prompt("Type a positive interger");
     resultArr = [];
-    document.writeln(`Given <strong>${counter}</strong> as a counter, the Fibonacci Rrcursive Sequence result is this: <strong>${getFibonacciResursiveFourParams(penultimate, ultimate, counter, resultArr)}</strong>`);
+    document.writeln(`Given <strong>${counter}</strong> as a counter, the Fibonacci Recursive Sequence result is this: <strong>${getFibonacciResursiveFourParams(penultimate, ultimate, counter, resultArr)}</strong>`);
 }

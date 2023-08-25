@@ -19,5 +19,5 @@ function execFibo(num) {
 
 function showFibonacciRecursiveSequenceOneParam() {
     let counter = prompt("Type a positive interger");
-    document.writeln(`Given <strong>${counter}</strong> as a counter, the Fibonacci Rrcursive Sequence result is this: <strong>${execFibo(counter)}</strong>`);
+    document.writeln(`Given <strong>${counter}</strong> as a counter, the Fibonacci Recursive Sequence result is this: <strong>${execFibo(counter)}</strong>`);
 }
