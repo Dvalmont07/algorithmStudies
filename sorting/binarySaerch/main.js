@@ -42,7 +42,7 @@ function showBinarySearch() {
     const list = [1, 10, 21, 41, 52, 65, 70, 80, 96, 100];
     const highest = list.length - 1;
     const lowest = 0;
+    document.write(`Original list: ${list} <br>`);
     document.write(`Array position of ${searchedItem}: ${returnArrayPosition(list, searchedItem, highest, lowest)}`);
 }
 showBinarySearch()
-//result = 7
